@@ -8,6 +8,7 @@ using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using natural.Fragments;
 
 namespace natural
 {
@@ -84,7 +85,7 @@ namespace natural
             }
             else if (id == Resource.Id.nav_gallery)
             {
-
+                changeFrame("aboutus");
             }
             else if (id == Resource.Id.nav_slideshow)
             {
@@ -106,6 +107,30 @@ namespace natural
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
+        }
+        private void changeFrame(string _type)
+        {
+            FragmentTransaction ft = FragmentManager.BeginTransaction();
+
+            Fragment fragment = null;
+            if (_type.Equals("aboutus"))
+            {
+                fragment = new FragmentAboutUs();
+            } else if (_type.Equals("tres"))
+            {
+
+            } else
+            {
+
+            }
+            if (fragment != null)
+            {
+                ft.Replace(Resource.Id.fragmentMany, fragment);
+                //ft.AddToBackStack(null);
+                ft.SetTransition(FragmentTransit.FragmentFade);
+                ft.Commit();
+            }
+
         }
     }
 }
