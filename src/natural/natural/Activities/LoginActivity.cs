@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace natural.Activities
 {
-    [Activity(Label = "LoginActivity", Theme = "@style/AppTheme.GeneralForm", MainLauncher = true)]
+    [Activity(Label = "LoginActivity", Theme = "@style/AppTheme.GeneralForm")]
     public class LoginActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
