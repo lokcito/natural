@@ -15,7 +15,6 @@ namespace natural
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
-        TextView txt;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,8 +32,6 @@ namespace natural
 
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
-
-            txt = FindViewById<TextView>(Resource.Id.txtHelloA);
 
         }
 
@@ -89,7 +86,7 @@ namespace natural
             }
             else if (id == Resource.Id.nav_slideshow)
             {
-
+                changeFrame("products");
             }
             else if (id == Resource.Id.nav_manage)
             {
@@ -116,9 +113,9 @@ namespace natural
             if (_type.Equals("aboutus"))
             {
                 fragment = new FragmentAboutUs();
-            } else if (_type.Equals("tres"))
+            } else if (_type.Equals("products"))
             {
-
+                fragment = new FragmentProducts();
             } else
             {
 
