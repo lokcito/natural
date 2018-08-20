@@ -10,6 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">
+        <ImageView
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1" />
         <TextView
             android:text="Registro"
             android:gravity="center"
@@ -20,19 +25,23 @@
             android:text="Nombre:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2" />
+            android:id="@+id/textView2"
+            style="@style/My.GeneralLabel" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText1" />
+            android:id="@+id/editText1"
+            style="@style/My.GeneralInput" />
         <TextView
             android:text="Apellidos:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3" />
+            android:id="@+id/textView3"
+            style="@style/My.GeneralLabel" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2" />
+            android:id="@+id/editText2"
+            style="@style/My.GeneralInput" />
     </LinearLayout>
 </LinearLayout>
