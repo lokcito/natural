@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android;
 using Android.App;
 using Android.OS;
@@ -105,23 +106,39 @@ namespace natural
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
         }
-        private void changeFrame(string _type)
+
+
+        public void changeFrame(string _type)
+        {
+            this.changeFrame(_type, null);
+        }
+
+        public void changeFrame(string _type, Dictionary<string, string> _params)
         {
             FragmentTransaction ft = FragmentManager.BeginTransaction();
-
+            Bundle bundleParams = new Bundle();
             Fragment fragment = null;
             if (_type.Equals("aboutus"))
             {
                 fragment = new FragmentAboutUs();
             } else if (_type.Equals("products"))
             {
-                fragment = new FragmentProducts();
-            } else
+                fragment = new FragmentProducts(this);
+            }
+            else if (_type.Equals("detail_products"))
+            {
+                foreach (string o in _params.Keys) {
+                    bundleParams.PutString(o, _params[o]);
+                }
+                fragment = new FragmentDetailProducts(this);
+            }
+            else
             {
 
             }
             if (fragment != null)
             {
+                fragment.Arguments = bundleParams;
                 ft.Replace(Resource.Id.fragmentMany, fragment);
                 //ft.AddToBackStack(null);
                 ft.SetTransition(FragmentTransit.FragmentFade);
